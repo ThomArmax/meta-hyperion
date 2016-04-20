@@ -1,2 +1,60 @@
-# meta-hyperion
-Yocto layer for hyperion
+Dependencies
+============
+
+This layer depends on:
+
+  URI: git://git.yoctoproject.org/poky
+  branch: master
+  revision: HEAD
+  
+  URI: git://github.com/meta-qt5/meta-qt5.git
+  branch: master
+  revision: HEAD
+  
+  URI: git://git.yoctoproject.org/meta-raspberrypi
+  branch: master
+  revision: HEAD
+
+Patches
+=======
+
+Please submit any patches against the hyperion layer to the
+the maintainer:
+
+Maintainer: Thomas COIN <esvcorp at gmail.com>
+
+
+Table of Contents
+=================
+
+  I. Adding the hyperion layer to your build
+  
+ II. Hyperion configuration
+
+
+I. Adding the hyperion layer to your build
+==========================================
+
+In order to use this layer, you need to make the build system aware of
+it.
+
+Assuming the diet layer exists at the top-level of your
+yocto build tree, you can add it to the build system by adding the
+location of the diet layer to bblayers.conf, along with any
+other layers needed. e.g.:
+
+  BBLAYERS ?= " \
+    /path/to/yocto/meta \
+    /path/to/yocto/meta-yocto \
+    /path/to/yocto/meta-yocto-bsp \
+    /path/to/yocto/meta-qt5 \
+    /path/to/yocto/meta-raspberrypi \
+    /path/to/yocto/meta-hyperion \
+    "
+
+
+II. Hyperion configuration
+==========================
+
+In order to configure hyperion, use PACKAGECONFIG
+
