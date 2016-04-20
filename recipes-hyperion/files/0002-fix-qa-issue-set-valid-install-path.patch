@@ -1,0 +1,61 @@
+diff --git a/src/hyperion-aml/CMakeLists.txt b/src/hyperion-aml/CMakeLists.txt
+index 9445b3e..1e486e5 100644
+--- a/src/hyperion-aml/CMakeLists.txt
++++ b/src/hyperion-aml/CMakeLists.txt
+@@ -61,4 +61,4 @@ else(ENABLE_QT5)
+ 	qt4_use_modules(${PROJECT_NAME} Core Gui Network )
+ endif(ENABLE_QT5)
+ 
+-install ( TARGETS ${PROJECT_NAME} DESTINATION "${CMAKE_SOURCE_DIR}/deploy/bin" )
++install ( TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} )
+diff --git a/src/hyperion-dispmanx/CMakeLists.txt b/src/hyperion-dispmanx/CMakeLists.txt
+index ae4c02d..0cfcbeb 100644
+--- a/src/hyperion-dispmanx/CMakeLists.txt
++++ b/src/hyperion-dispmanx/CMakeLists.txt
+@@ -61,4 +61,4 @@ else(ENABLE_QT5)
+ endif(ENABLE_QT5)
+ 
+ 
+-install ( TARGETS ${PROJECT_NAME} DESTINATION "${CMAKE_SOURCE_DIR}/deploy/bin" )
++install ( TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} )
+diff --git a/src/hyperion-remote/CMakeLists.txt b/src/hyperion-remote/CMakeLists.txt
+index 36ca8cc..6a9e394 100644
+--- a/src/hyperion-remote/CMakeLists.txt
++++ b/src/hyperion-remote/CMakeLists.txt
+@@ -42,5 +42,5 @@ else(ENABLE_QT5)
+ 	qt4_use_modules(${PROJECT_NAME} Core Gui Network )
+ endif(ENABLE_QT5)
+ 
+-install ( TARGETS ${PROJECT_NAME} DESTINATION "${CMAKE_SOURCE_DIR}/deploy/bin" )
++install ( TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} )
+ 
+diff --git a/src/hyperion-v4l2/CMakeLists.txt b/src/hyperion-v4l2/CMakeLists.txt
+index ee1882a..9d37766 100644
+--- a/src/hyperion-v4l2/CMakeLists.txt
++++ b/src/hyperion-v4l2/CMakeLists.txt
+@@ -61,4 +61,4 @@ else(ENABLE_QT5)
+ endif(ENABLE_QT5)
+ 
+ 
+-install ( TARGETS ${PROJECT_NAME} DESTINATION "${CMAKE_SOURCE_DIR}/deploy/bin" )
++install ( TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} )
+diff --git a/src/hyperion-x11/CMakeLists.txt b/src/hyperion-x11/CMakeLists.txt
+index 69744f4..8e9c7a0 100644
+--- a/src/hyperion-x11/CMakeLists.txt
++++ b/src/hyperion-x11/CMakeLists.txt
+@@ -61,4 +61,4 @@ else(ENABLE_QT5)
+ 	qt4_use_modules(${PROJECT_NAME} Core Gui Network )
+ endif(ENABLE_QT5)
+ 
+-install ( TARGETS ${PROJECT_NAME} DESTINATION "${CMAKE_SOURCE_DIR}/deploy/bin" )
++install ( TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} )
+diff --git a/src/hyperiond/CMakeLists.txt b/src/hyperiond/CMakeLists.txt
+index 5aef74d..87a586f 100644
+--- a/src/hyperiond/CMakeLists.txt
++++ b/src/hyperiond/CMakeLists.txt
+@@ -34,4 +34,4 @@ if (ENABLE_PROTOBUF)
+ 	target_link_libraries(hyperiond protoserver)
+ endif (ENABLE_PROTOBUF)
+ 
+-install ( TARGETS hyperiond DESTINATION "${CMAKE_SOURCE_DIR}/deploy/bin" )
++install ( TARGETS hyperiond DESTINATION ${CMAKE_INSTALL_BINDIR} )
