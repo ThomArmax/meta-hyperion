@@ -56,8 +56,7 @@ other layers needed. e.g.:
     /path/to/yocto/meta-hyperion \  
   "
 
-You also need to set a valid machine in your local.conf.
-e.g.:
+You also need to set a valid machine in your local.conf. e.g.:
 
   MACHINE = "raspberrypi2"
 
