@@ -3,16 +3,16 @@ Dependencies
 
 This layer depends on:
 
-  URI: git://git.yoctoproject.org/poky
-  branch: master
+  URI: git://git.yoctoproject.org/poky  
+  branch: master  
   revision: HEAD
   
-  URI: git://github.com/meta-qt5/meta-qt5.git
-  branch: master
+  URI: git://github.com/meta-qt5/meta-qt5.git  
+  branch: master  
   revision: HEAD
   
-  URI: git://git.yoctoproject.org/meta-raspberrypi
-  branch: master
+  URI: git://git.yoctoproject.org/meta-raspberrypi  
+  branch: master  
   revision: HEAD
 
 Patches
@@ -27,8 +27,7 @@ Maintainer: Thomas COIN <esvcorp at gmail.com>
 Table of Contents
 =================
 
-  I. Adding the hyperion layer to your build
-  
+  I. Adding the hyperion layer to your build  
  II. Hyperion configuration
 
 
@@ -43,13 +42,13 @@ yocto build tree, you can add it to the build system by adding the
 location of the diet layer to bblayers.conf, along with any
 other layers needed. e.g.:
 
-  BBLAYERS ?= " \
-    /path/to/yocto/meta \
-    /path/to/yocto/meta-yocto \
-    /path/to/yocto/meta-yocto-bsp \
-    /path/to/yocto/meta-qt5 \
-    /path/to/yocto/meta-raspberrypi \
-    /path/to/yocto/meta-hyperion \
+  BBLAYERS ?= " \  
+    /path/to/yocto/meta \  
+    /path/to/yocto/meta-yocto \  
+    /path/to/yocto/meta-yocto-bsp \  
+    /path/to/yocto/meta-qt5 \  
+    /path/to/yocto/meta-raspberrypi \  
+    /path/to/yocto/meta-hyperion \  
     "
 
 
