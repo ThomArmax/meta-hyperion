@@ -50,8 +50,10 @@ RPI_PCKCONFIG = " \
 	ws281x \
 	"
 
+PACKAGECONFIG_append_raspberrypi3 = "${RPI_PCKCONFIG}"
 PACKAGECONFIG_append_raspberrypi2 = "${RPI_PCKCONFIG}"
 PACKAGECONFIG_append_raspberrypi = "${RPI_PCKCONFIG}"
+PACKAGECONFIG_append_raspberrypi0 = "${RPI_PCKCONFIG}"
 
 EXTRA_OECMAKE += " \
 	-DENABLE_OSX=OFF \
