@@ -38,7 +38,6 @@ PACKAGECONFIG[ws281x] = "-DENABLE_WS281XPWM=ON,-DENABLE_WS281XPWM=OFF"
 
 PACKAGECONFIG ?= " \
 	qt5 \
-	dispmanx \
 	protobuf \
 	spi \
 	v4l2 \
@@ -46,6 +45,7 @@ PACKAGECONFIG ?= " \
 	"
 
 RPI_PCKCONFIG = " \
+	dispmanx
 	ws2812b \
 	ws281x \
 	"
