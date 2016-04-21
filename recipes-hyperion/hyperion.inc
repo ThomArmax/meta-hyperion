@@ -62,6 +62,7 @@ DEPENDS = "\
 	libusb \
 	python \
 	protobuf \
+	protobuf-native \
 	"
 
 RDPENDS_${PN} = "\
