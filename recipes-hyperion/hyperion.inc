@@ -45,7 +45,7 @@ PACKAGECONFIG ?= " \
 	"
 
 RPI_PCKCONFIG = " \
-	dispmanx
+	dispmanx \
 	ws2812b \
 	ws281x \
 	"
