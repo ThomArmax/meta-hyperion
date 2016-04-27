@@ -24,7 +24,7 @@ inherit cmake_qt5
 
 FILESEXTRAPATHS_append := "${THISDIR}/files"
 
-PACKAGECONFIG[qt5] = "-DENABLE_QT5=ON,-DENABLE_QT5=OFF"
+PACKAGECONFIG[qt5] = "-DENABLE_QT5=ON,-DENABLE_QT5=OFF, qtbase, qtbase"
 PACKAGECONFIG[amlogic] = "-DENABLE_AMLOGIC=ON,-DENABLE_AMLOGIC=OFF"
 PACKAGECONFIG[dispmanx] = "-DENABLE_DISPMANX=ON,-DENABLE_DISPMANX=OFF"
 PACKAGECONFIG[fb] = "-DENABLE_FB=ON,-DENABLE_FB=OFF"
@@ -61,11 +61,6 @@ EXTRA_OECMAKE += " \
     "
 
 DEPENDS = " \
-    qtbase \
     libusb \
     python \
-    "
-
-RDPENDS_${PN} = " \
-    qtbase \
     "
