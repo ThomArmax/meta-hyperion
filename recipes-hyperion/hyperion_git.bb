@@ -10,5 +10,5 @@ SRCREV = "f64b6eb8dbaeef0f4aae8954da3b87524be106bd"
 
 S = "${WORKDIR}/git"
 
-PR = "1"
-PV = "1.1"
+PR = "0"
+PV = "1.1.1"
