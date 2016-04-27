@@ -37,18 +37,18 @@ PACKAGECONFIG[ws2812b] = "-DENABLE_WS2812BPWM=ON,-DENABLE_WS2812BPWM=OFF"
 PACKAGECONFIG[ws281x] = "-DENABLE_WS281XPWM=ON,-DENABLE_WS281XPWM=OFF"
 
 PACKAGECONFIG ?= " \
-	qt5 \
-	protobuf \
-	spi \
-	v4l2 \
-	${@bb.utils.contains("DISTRO_FEATURES", "x11", "x11", "",d)} \
-	"
+    qt5 \
+    protobuf \
+    spi \
+    v4l2 \
+    ${@bb.utils.contains("DISTRO_FEATURES", "x11", "x11", "",d)} \
+    "
 
 RPI_PCKCONFIG = " \
-	dispmanx \
-	ws2812b \
-	ws281x \
-	"
+    dispmanx \
+    ws2812b \
+    ws281x \
+    "
 
 PACKAGECONFIG_append_raspberrypi3 = "${RPI_PCKCONFIG}"
 PACKAGECONFIG_append_raspberrypi2 = "${RPI_PCKCONFIG}"
@@ -56,16 +56,16 @@ PACKAGECONFIG_append_raspberrypi = "${RPI_PCKCONFIG}"
 PACKAGECONFIG_append_raspberrypi0 = "${RPI_PCKCONFIG}"
 
 EXTRA_OECMAKE += " \
-	-DENABLE_OSX=OFF \
-	-DENABLE_TESTS=OFF \
-"
+    -DENABLE_OSX=OFF \
+    -DENABLE_TESTS=OFF \
+    "
 
-DEPENDS = "\
-	qtbase \
-	libusb \
-	python \
-	"
+DEPENDS = " \
+    qtbase \
+    libusb \
+    python \
+    "
 
-RDPENDS_${PN} = "\
-	qtbase \
-	"
+RDPENDS_${PN} = " \
+    qtbase \
+    "
