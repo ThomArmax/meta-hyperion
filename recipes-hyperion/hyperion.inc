@@ -65,6 +65,13 @@ DEPENDS = " \
     python \
     "
 
+RDEPENDS_${PN} = " \
+    python \
+    python-image \
+    python-math \
+    python-io \
+    "
+
 HYPERION_CONFIG_FILE ??= "${S}/config/hyperion.config.json"
 
 FILES_${PN} += " /opt/hyperion/config/hyperion.config.json"
