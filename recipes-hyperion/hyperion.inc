@@ -20,9 +20,13 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 PROVIDES = "hyperion"
 
-inherit cmake_qt5
+inherit cmake_qt5 update-rc.d
 
 FILESEXTRAPATHS_append := "${THISDIR}/files"
+
+INITSCRIPT_PACKAGES = "${PN}"
+INITSCRIPT_NAME_${PN} = "hyperiond.sh"
+INITSCRIPT_PARAMS_${PN} = "defaults 98 02"
 
 PACKAGECONFIG[qt5] = "-DENABLE_QT5=ON,-DENABLE_QT5=OFF, qtbase, qtbase"
 PACKAGECONFIG[amlogic] = "-DENABLE_AMLOGIC=ON,-DENABLE_AMLOGIC=OFF"
@@ -66,6 +70,8 @@ DEPENDS = " \
     "
 
 RDEPENDS_${PN} = " \
+    bash \
+    procps \
     python \
     python-image \
     python-math \
@@ -80,6 +86,12 @@ FILES_${PN} += " \
     "
 
 do_install_append() {
+    #install init scripts
+    if ${@bb.utils.contains('DISTRO_FEATURES','sysvinit','true','false',d)}; then
+        install -d ${D}${sysconfdir}/init.d/
+        install -m 0755 ${S}/bin/service/hyperion.init.sh ${D}${sysconfdir}/init.d/hyperiond.sh
+    fi
+
     # install hyperion config file
     install -d ${D}${sysconfdir}
     install -d ${D}/opt/hyperion/config/
