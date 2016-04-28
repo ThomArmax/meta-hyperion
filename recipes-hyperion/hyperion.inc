@@ -74,7 +74,10 @@ RDEPENDS_${PN} = " \
 
 HYPERION_CONFIG_FILE ??= "${S}/config/hyperion.config.json"
 
-FILES_${PN} += " /opt/hyperion/config/hyperion.config.json"
+FILES_${PN} += " \
+    /opt/hyperion/config/hyperion.config.json \
+    /opt/hyperion/effects/ \
+    "
 
 do_install_append() {
     # install hyperion config file
@@ -82,4 +85,7 @@ do_install_append() {
     install -d ${D}/opt/hyperion/config/
     install ${HYPERION_CONFIG_FILE} ${D}/opt/hyperion/config/hyperion.config.json
     ln -s /opt/hyperion/config/hyperion.config.json ${D}${sysconfdir}/hyperion.config.json
+
+    install -d ${D}/opt/hyperion/effects
+    install ${S}/effects/* ${D}/opt/hyperion/effects
 }
