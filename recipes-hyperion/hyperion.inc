@@ -64,3 +64,15 @@ DEPENDS = " \
     libusb \
     python \
     "
+
+HYPERION_CONFIG_FILE ??= "${S}/config/hyperion.config.json"
+
+FILES_${PN} += " /opt/hyperion/config/hyperion.config.json"
+
+do_install_append() {
+    # install hyperion config file
+    install -d ${D}${sysconfdir}
+    install -d ${D}/opt/hyperion/config/
+    install ${HYPERION_CONFIG_FILE} ${D}/opt/hyperion/config/hyperion.config.json
+    ln -s /opt/hyperion/config/hyperion.config.json ${D}${sysconfdir}/hyperion.config.json
+}
