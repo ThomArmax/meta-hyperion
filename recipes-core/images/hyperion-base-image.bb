@@ -2,4 +2,4 @@ require hyperion-image-base.inc
 
 DESCRIPTION = "Standard full-featured Linux system with hyperion"
 
-IMAGE_INSTALL += "packagegroup-basic"
+IMAGE_INSTALL += "packagegroup-basic packagegroup-core-full-cmdline"
