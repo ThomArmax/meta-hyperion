@@ -48,17 +48,6 @@ PACKAGECONFIG ?= " \
     ${@bb.utils.contains("DISTRO_FEATURES", "x11", "x11", "",d)} \
     "
 
-RPI_PCKCONFIG = " \
-    dispmanx \
-    ws2812b \
-    ws281x \
-    "
-
-PACKAGECONFIG_append_raspberrypi3 = "${RPI_PCKCONFIG}"
-PACKAGECONFIG_append_raspberrypi2 = "${RPI_PCKCONFIG}"
-PACKAGECONFIG_append_raspberrypi = "${RPI_PCKCONFIG}"
-PACKAGECONFIG_append_raspberrypi0 = "${RPI_PCKCONFIG}"
-
 EXTRA_OECMAKE += " \
     -DENABLE_OSX=OFF \
     -DENABLE_TESTS=OFF \
