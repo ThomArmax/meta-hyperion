@@ -1,0 +1,19 @@
+Yocto layer for Raspberry Pi addons
+================================================================
+
+This layer provides support for Raspberry Pi and it's used
+by meta-hyperion
+
+This layer depends on:
+
+  URI: git://github.com/agherzan/meta-raspberrypi.git
+  branch: master
+  revision: HEAD
+
+  URI: git://github.com/meta-qt5/meta-qt5.git
+  branch: master
+  revision: HEAD
+
+  URI: git://github.com/ThomArmax/meta-hyperion.git
+  branch: master
+  revision: HEAD
