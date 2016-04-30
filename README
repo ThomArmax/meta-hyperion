@@ -54,6 +54,7 @@ other layers needed. e.g.:
     /path/to/yocto/meta-raspberrypi \
     /path/to/yocto/meta-qt5 \
     /path/to/yocto/meta-hyperion \
+    /path/to/yocto/meta-hyperion/meta-raspberrypi \
     "
 
 You also need to set a valid machine in your local.conf. e.g.:
