@@ -20,7 +20,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 PROVIDES = "hyperion"
 
-inherit cmake_qt5 update-rc.d
+inherit cmake_qt5 update-rc.d systemd
 
 FILESEXTRAPATHS_append := "${THISDIR}/files"
 
@@ -34,6 +34,9 @@ S = "${WORKDIR}/git"
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME_${PN} = "hyperion.sh"
 INITSCRIPT_PARAMS_${PN} = "defaults 98 02"
+
+SYSTEMD_PACKAGES = "${PN}"
+SYSTEMD_SERVIDE_${PN} = "hyperion.service"
 
 PACKAGECONFIG[qt5] = "-DENABLE_QT5=ON,-DENABLE_QT5=OFF, qtbase, qtbase"
 PACKAGECONFIG[amlogic] = "-DENABLE_AMLOGIC=ON,-DENABLE_AMLOGIC=OFF"
@@ -79,6 +82,7 @@ HYPERION_CONFIG_FILE ??= "${S}/config/hyperion.config.json"
 FILES_${PN} += " \
     /opt/hyperion/config/hyperion.config.json \
     /opt/hyperion/effects/ \
+    ${systemd_unitdir}/system/hyperion.service \
     "
 
 do_install_append() {
@@ -86,6 +90,11 @@ do_install_append() {
     if ${@bb.utils.contains('DISTRO_FEATURES','sysvinit','true','false',d)}; then
         install -d ${D}${sysconfdir}/init.d/
         install -m 0755 ${WORKDIR}/init/sysvinit/hyperion.sh ${D}${sysconfdir}/init.d
+    fi
+
+    if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
+       install -d ${D}${systemd_unitdir}/system/ ${D}${sysconfdir}/systemd/system/
+       install -m 0644 ${WORKDIR}/init/systemd/hyperion.service ${D}${systemd_unitdir}/system/
     fi
 
     # install hyperion config file
