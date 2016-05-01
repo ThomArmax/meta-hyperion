@@ -24,6 +24,12 @@ inherit cmake_qt5 update-rc.d
 
 FILESEXTRAPATHS_append := "${THISDIR}/files"
 
+SRC_URI = " \
+    gitsm://github.com/hyperion-project/hyperion.git;protocol=https \
+    "
+
+S = "${WORKDIR}/git"
+
 INITSCRIPT_PACKAGES = "${PN}"
 INITSCRIPT_NAME_${PN} = "hyperiond.sh"
 INITSCRIPT_PARAMS_${PN} = "defaults 98 02"
