@@ -1,3 +1,6 @@
+# Base this image on core-image-minimal
+include recipes-core/images/core-image-minimal.bb
+
 LICENSE = "MIT"
 
 IMAGE_FEATURES += "ssh-server-dropbear"
@@ -9,7 +12,6 @@ IMAGE_INSTALL += " \
     hyperion \
     "
 
-inherit core-image
 inherit extrausers
 
 EXTRA_USERS_PARAMS += " \
