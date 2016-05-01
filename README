@@ -57,7 +57,46 @@ You also need to set a valid machine in your local.conf. e.g.:
 
   MACHINE = "raspberrypi2"
 
+
 II. Hyperion configuration
 ==========================
 
-In order to configure hyperion, use PACKAGECONFIG
+The hyperion configuration is made via PACKAGECONFIG.
+The list of available package configurations is:
+  - qt5 : Build hyperion againts qt5
+  - amlogic : Enable the AMLOGIC video grabber
+  - dispmanx : Enable the RPi dispmanx grabber
+  - fb : Enable the framebuffer grabber
+  - protobuf : Enable PROTOBUF server
+  - spi : Enable SPI device
+  - tinkerforge : Enable the TINKERFORGE device
+  - v4l2 : Enable the V4L2 grabber
+  - x11 : Enable the X11 grabber
+  - ws2812b : Enable the WS2812b-PWM device
+  - ws281x : Enable the WS281x-PWM device
+
+By default are enabled :
+  - qt5
+  - protobuf
+  - spi
+  - v4l2
+  - x11 (if x11 is in the DISTRO_FEATURES)
+
+When using meta-raspberrypi extra layer from meta-hyperion,
+the following extra package configurations are added :
+  - dispmanx
+  - ws2812b
+  - ws281x
+
+You can change the hyperion config by adding the list of desired
+features in you local.conf. e.g. :
+  # override PACKAGECONIFG
+  PACKAGECONFIG_pn-hyperion = "some features"
+  # append a feature
+  PACKAGECONFIG_pn-hyperion_append = " feature"
+  # remove a feature
+  PACKAGECONFIG_pn-hyperion_remove = "feature"
+
+To add you own hyperion JSON configuration file, you need to override the
+HYPERION_CONFIG_FILE variable. You can set it in your local.conf. e.g. :
+  HYPERION_CONFIG_FILE = "/path/to/your/config/hyperion.config.json"
