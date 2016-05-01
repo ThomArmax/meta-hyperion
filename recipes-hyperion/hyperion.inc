@@ -26,12 +26,13 @@ FILESEXTRAPATHS_append := "${THISDIR}/files"
 
 SRC_URI = " \
     gitsm://github.com/hyperion-project/hyperion.git;protocol=https \
+    file://init \
     "
 
 S = "${WORKDIR}/git"
 
 INITSCRIPT_PACKAGES = "${PN}"
-INITSCRIPT_NAME_${PN} = "hyperiond.sh"
+INITSCRIPT_NAME_${PN} = "hyperion.sh"
 INITSCRIPT_PARAMS_${PN} = "defaults 98 02"
 
 PACKAGECONFIG[qt5] = "-DENABLE_QT5=ON,-DENABLE_QT5=OFF, qtbase, qtbase"
@@ -84,14 +85,13 @@ do_install_append() {
     #install init scripts
     if ${@bb.utils.contains('DISTRO_FEATURES','sysvinit','true','false',d)}; then
         install -d ${D}${sysconfdir}/init.d/
-        install -m 0755 ${S}/bin/service/hyperion.init.sh ${D}${sysconfdir}/init.d/hyperiond.sh
+        install -m 0755 ${WORKDIR}/init/sysvinit/hyperion.sh ${D}${sysconfdir}/init.d
     fi
 
     # install hyperion config file
     install -d ${D}${sysconfdir}
     install -d ${D}/opt/hyperion/config/
     install ${HYPERION_CONFIG_FILE} ${D}/opt/hyperion/config/hyperion.config.json
-    ln -s /opt/hyperion/config/hyperion.config.json ${D}${sysconfdir}/hyperion.config.json
 
     install -d ${D}/opt/hyperion/effects
     install ${S}/effects/* ${D}/opt/hyperion/effects
