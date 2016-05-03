@@ -124,4 +124,5 @@ features in you local.conf. e.g. :
 
 To add you own hyperion JSON configuration file, you need to override the
 HYPERION_CONFIG_FILE variable. You can set it in your local.conf. e.g. :
+
   HYPERION_CONFIG_FILE = "/path/to/your/config/hyperion.config.json"
