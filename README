@@ -118,9 +118,9 @@ features in you local.conf. e.g. :
   # override PACKAGECONIFG
   PACKAGECONFIG_pn-hyperion = "some features"
   # append a feature
-  PACKAGECONFIG_pn-hyperion_append = " feature"
+  PACKAGECONFIG_append_pn-hyperion = " feature"
   # remove a feature
-  PACKAGECONFIG_pn-hyperion_remove = "feature"
+  PACKAGECONFIG_remove_pn-hyperion = "feature"
 
 To add you own hyperion JSON configuration file, you need to override the
 HYPERION_CONFIG_FILE variable. You can set it in your local.conf. e.g. :
