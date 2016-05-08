@@ -54,6 +54,7 @@ Table of Contents
 
   I. Adding the hyperion layer to your build
  II. Hyperion configuration
+III. Build
 
 
 I. Adding the hyperion layer to your build
@@ -126,3 +127,28 @@ To add you own hyperion JSON configuration file, you need to override the
 HYPERION_CONFIG_FILE variable. You can set it in your local.conf. e.g. :
 
   HYPERION_CONFIG_FILE = "/path/to/your/config/hyperion.config.json"
+
+III. Build
+==========
+
+First you need to source Yocto env:
+
+  source oe-init-build-env build-hyperion-rpi
+
+To build hyperion package:
+
+  bitbake hyperion
+
+To generate the image:
+
+  bitbake <IMAGE_NAME>
+
+The available images are:
+
+  - hyperion-minimal-image A minimal image, just able to boot and run hyperion + SSH
+  - hyperion-minimal-dev-image A minimal image, just able to boot and run hyperion + SSH + debug tweaks + package management
+  - hyperion-image-base A standard full-featured Linux system with hyperion
+
+Login: root
+Password: empty (no password)
+
