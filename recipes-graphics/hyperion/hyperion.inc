@@ -36,7 +36,7 @@ INITSCRIPT_NAME_${PN} = "hyperion.sh"
 INITSCRIPT_PARAMS_${PN} = "defaults 98 02"
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVIDE_${PN} = "hyperion.service"
+SYSTEMD_SERVICE_${PN} = "hyperion.service"
 
 PACKAGECONFIG[qt5] = "-DENABLE_QT5=ON,-DENABLE_QT5=OFF, qtbase, qtbase"
 PACKAGECONFIG[amlogic] = "-DENABLE_AMLOGIC=ON,-DENABLE_AMLOGIC=OFF"
