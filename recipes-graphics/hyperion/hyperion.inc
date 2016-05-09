@@ -38,7 +38,6 @@ INITSCRIPT_PARAMS_${PN} = "defaults 98 02"
 SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "hyperion.service"
 
-PACKAGECONFIG[qt5] = "-DENABLE_QT5=ON,-DENABLE_QT5=OFF, qtbase, qtbase"
 PACKAGECONFIG[amlogic] = "-DENABLE_AMLOGIC=ON,-DENABLE_AMLOGIC=OFF"
 PACKAGECONFIG[dispmanx] = "-DENABLE_DISPMANX=ON,-DENABLE_DISPMANX=OFF"
 PACKAGECONFIG[fb] = "-DENABLE_FB=ON,-DENABLE_FB=OFF"
@@ -51,7 +50,6 @@ PACKAGECONFIG[ws2812b] = "-DENABLE_WS2812BPWM=ON,-DENABLE_WS2812BPWM=OFF"
 PACKAGECONFIG[ws281x] = "-DENABLE_WS281XPWM=ON,-DENABLE_WS281XPWM=OFF"
 
 PACKAGECONFIG ?= " \
-    qt5 \
     protobuf \
     spi \
     v4l2 \
@@ -59,6 +57,7 @@ PACKAGECONFIG ?= " \
     "
 
 EXTRA_OECMAKE += " \
+    -DENABLE_QT5=ON \
     -DENABLE_OSX=OFF \
     -DENABLE_TESTS=OFF \
     "
@@ -66,9 +65,11 @@ EXTRA_OECMAKE += " \
 DEPENDS = " \
     libusb \
     python \
+    qtbase \
     "
 
 RDEPENDS_${PN} = " \
+    qtbase \
     bash \
     procps \
     python \

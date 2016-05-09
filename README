@@ -89,7 +89,6 @@ II. Hyperion configuration
 
 The hyperion configuration is made via PACKAGECONFIG.
 The list of available package configurations is:
-  - qt5 : Build hyperion againts qt5
   - amlogic : Enable the AMLOGIC video grabber
   - dispmanx : Enable the RPi dispmanx grabber
   - fb : Enable the framebuffer grabber
@@ -102,7 +101,6 @@ The list of available package configurations is:
   - ws281x : Enable the WS281x-PWM device
 
 By default are enabled :
-  - qt5
   - protobuf
   - spi
   - v4l2
