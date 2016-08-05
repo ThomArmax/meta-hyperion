@@ -53,7 +53,7 @@ PACKAGECONFIG ?= " \
     spi \
     v4l2 \
     ${@bb.utils.contains("DISTRO_FEATURES", "x11", "x11", "",d)} \
-    zeroconf \
+    ${@bb.utils.contains("DISTRO_FEATURES", "zeroconf", "zeroconf", "",d)} \
     "
 
 EXTRA_OECMAKE += " \
